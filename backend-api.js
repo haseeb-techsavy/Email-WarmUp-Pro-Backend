@@ -492,3 +492,40 @@ process.on('SIGTERM', () => {
 
     process.exit(0);
 });
+
+//  only for testing purposes - to check if ports are open for SMTP connections
+
+app.get('/api/test-ports', async (req, res) => {
+    const net = require('net');
+    const results = {};
+    
+    const testPort = (host, port) => {
+        return new Promise((resolve) => {
+            const socket = new net.Socket();
+            socket.setTimeout(5000);
+            
+            socket.on('connect', () => {
+                socket.destroy();
+                resolve(true);
+            });
+            
+            socket.on('timeout', () => {
+                socket.destroy();
+                resolve(false);
+            });
+            
+            socket.on('error', () => {
+                resolve(false);
+            });
+            
+            socket.connect(port, host);
+        });
+    };
+    
+    results.port587 = await testPort('smtp.gmail.com', 587);
+    results.port465 = await testPort('smtp.gmail.com', 465);
+    results.port2525 = await testPort('smtp.gmail.com', 2525);
+    results.port25 = await testPort('smtp.gmail.com', 25);
+    
+    res.json(results);
+});
