@@ -7,7 +7,12 @@ const cors = require('cors');
 const admin = require('firebase-admin');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: [
+        'http://localhost:3000',
+        'https://email-warmup-pro.netlify.app',
+    ]
+}));
 app.use(express.json());
 
 // Initialize Firebase Admin
