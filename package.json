@@ -1,0 +1,21 @@
+{
+  "name": "email-warmup-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Email Warm-up Application",
+  "main": "backend-api-FIXED-FINAL.js",
+  "scripts": {
+    "start": "node backend-api-FIXED-FINAL.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["email", "warmup", "smtp", "nodemailer"],
+  "author": "haseebthetechguru.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7",
+    "cors": "^2.8.5",
+    "firebase-admin": "^11.11.1"
+  }
+}
