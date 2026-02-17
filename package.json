@@ -2,9 +2,9 @@
   "name": "email-warmup-backend",
   "version": "1.0.0",
   "description": "Backend API for Email Warm-up Application",
-  "main": "backend-api-FIXED-FINAL.js",
+  "main": "backend-api.js",
   "scripts": {
-    "start": "node backend-api-FIXED-FINAL.js"
+    "start": "node backend-api.js"
   },
   "engines": {
     "node": ">=18.0.0"
